@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:circleter/background-rect.dart';
+import 'package:circleter/components/background-rect.dart';
 import 'package:circleter/snake-game.dart';
 
 class GameBackground {
