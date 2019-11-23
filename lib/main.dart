@@ -8,10 +8,10 @@ void main() async {
   Util flameUtil = Util();
   await flameUtil.fullScreen();
   await flameUtil.setOrientation(DeviceOrientation.portraitUp);
-
+  DragGestureRecognizer dragger = HorizontalDragGestureRecognizer();
   SnakeGame game = SnakeGame();
-  TapGestureRecognizer tapper = TapGestureRecognizer();
-  tapper.onTapDown = game.onTapDown;
+  dragger.onEnd = game.onHorizontalDragEnd;
+
   runApp(game.widget);
-  flameUtil.addGestureRecognizer(tapper);
+  flameUtil.addGestureRecognizer(dragger);
 }

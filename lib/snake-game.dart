@@ -44,17 +44,14 @@ class SnakeGame extends Game {
     super.resize(size);
   }
 
-  void onTapDown(TapDownDetails d) {
-//    double screenCenterX = screenSize.width / 2;
-//    double screenCenterY = screenSize.height / 2;
-//    if (d.globalPosition.dx >= screenCenterX - 75
-//        && d.globalPosition.dx <= screenCenterX + 75
-//        && d.globalPosition.dy >= screenCenterY - 75
-//        && d.globalPosition.dy <= screenCenterY + 75
-//    ) {
-//      hasWon = !hasWon;
-//    } else {
-//      hasWon = false;
-//    }
+  void onHorizontalDragEnd(DragEndDetails d) {
+    if(d.primaryVelocity == 0) return; // user have just tapped on screen (no dragging)
+
+    if (d.primaryVelocity.compareTo(0) == -1) {
+      this.snake.swipeLeft();
+    }
+    else {
+      this.snake.swipeRight();
+    }
   }
 }
